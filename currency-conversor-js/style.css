@@ -1,0 +1,19 @@
+body {
+background-color: #f0f4fc;
+}
+
+.container {
+padding-top: 8rem;
+}
+
+.converted-value {
+color: #3b2144;
+}
+
+.conversion-precision {
+color: #3c1f46;
+}
+
+.app-title {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
