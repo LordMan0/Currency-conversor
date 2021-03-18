@@ -11,9 +11,15 @@ const baseUrl = currency =>
 const fetchExchangeRate = async (currency) => {
     try {
         const response = await fetch(baseUrl(currency))
-        return response.json()
-    } catch ({ name, message }) {
-        alert(`${name}: ${message}`)
+        const exchangeRateData = response.json()
+
+        if (exchangeRateData.result === 'error') {
+            throw new Error('Essa moeda não existe em nossos banco de dados.')
+        }
+
+        return exchangeRateData
+    } catch (err) {
+        alert(err.message)
     }
 }
     
