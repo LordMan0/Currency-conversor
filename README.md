@@ -1,2 +1,2 @@
 # Currency-conversor
-:dollar:  Aplicações de câmbio de moedas construídas com JavaScript.
+:dollar:  Aplicação de câmbio de moedas construída com JavaScript.
