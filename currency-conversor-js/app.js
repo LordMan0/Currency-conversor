@@ -1,5 +1,5 @@
-const currencyOneSelector = document.querySelector('[data-js="currency-one"]')
-const currencyTwoSelector = document.querySelector('[data-js="currency-two"]')
+const currencyOneEl = document.querySelector('[data-js="currency-one"]')
+const currencyTwoEl = document.querySelector('[data-js="currency-two"]')
 const numberTimesCurrency = document.querySelector('[data-js="currency-one-times"]')
 const convertedValueEl = document.querySelector('[data-js="converted-value"]')
 const conversionPrecisionEl = document.querySelector('[data-js="conversion-precision"]')
@@ -35,8 +35,8 @@ const showExchageRate = async (currencyOne, currencyTwo) => {
         Object.keys(currencyList)
             .map(currency => addOption(selector, currency, selectedCurrency))
     
-    getOptionsFromData(currencyOneSelector, currencyOne)
-    getOptionsFromData(currencyTwoSelector, currencyTwo)
+    getOptionsFromData(currencyOneEl, currencyOne)
+    getOptionsFromData(currencyTwoEl, currencyTwo)
     
 
     convertedValueEl.textContent = exchangeRate.toFixed(2)
@@ -51,7 +51,7 @@ const showExchageRate = async (currencyOne, currencyTwo) => {
     })
 
     conversionPrecisionEl.textContent = 
-        `1 ${currencyOne} = ${exchangeRate} ${currencyTwo}`
+        `1 ${currencyOne} = ${exchangeRate.toFixed(4)} ${currencyTwo}`
 }
 
 const startDefaultExchange = () => {
@@ -63,14 +63,14 @@ const startDefaultExchange = () => {
 
 startDefaultExchange()
 
-currencyOneSelector.addEventListener('input', e => {
-    const currencyTwo = currencyTwoSelector
-        .options[currencyTwoSelector.selectedIndex].value
+currencyOneEl.addEventListener('input', e => {
+    const currencyTwo = currencyTwoEl
+        .options[currencyTwoEl.selectedIndex].value
     showExchageRate(e.target.value, currencyTwo)
 })
 
-currencyTwoSelector.addEventListener('input', e => {
-    const currencyOne = currencyOneSelector
-        .options[currencyOneSelector.selectedIndex].value
+currencyTwoEl.addEventListener('input', e => {
+    const currencyOne = currencyOneEl
+        .options[currencyOneEl.selectedIndex].value
     showExchageRate(currencyOne, e.target.value)
 })
